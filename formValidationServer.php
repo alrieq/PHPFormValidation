@@ -31,7 +31,7 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 }
 
 // comment validation:
-$commentRegExp = "/^(?=.*[A-Za-z0-9])[A-Za-z\d@$!%*#?&]{0,150}$/";
+$commentRegExp = "/^(?=.*[A-Za-z0-9])[A-Za-z\d@$!%*#?& ]{1,150}$/";
 
 if (preg_match($commentRegExp, $comment)) {
     echo "<p>Comment is valid</p>";

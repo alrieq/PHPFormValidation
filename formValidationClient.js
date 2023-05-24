@@ -21,7 +21,7 @@ function validateForm(event) {
         isValid = false;
     }
     // Password validation
-    const passwordRegExp = /^(?=.*[A-Za-z0-9])[A-Za-z\d@$!%*#?&]{1,150}$/;
+    const passwordRegExp = /^(?=.*[A-Za-z0-9])[A-Za-z\d@$!%*#?& ]{1,150}$/;
     if (comment == "" || !passwordRegExp.test(comment)) {
         errorMessageElem.innerHTML += "<p>Comment must be less then 150 characters, at least one letter or one digit.</p>";
         isValid = false;
