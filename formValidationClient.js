@@ -1,16 +1,17 @@
 function validateForm(event) {
     let userName = document.forms["myForm"]["uname"].value;
     let email = document.forms["myForm"]["email"].value;
-    let password = document.forms["myForm"]["pw"].value;
+    let comment = document.forms["myForm"]["commentInput"].value;
 
     let errorMessageElem = document.getElementById("error-message");
     errorMessageElem.innerHTML = "";
     let isValid = true;
 
     // User name validation
-    const userNameRegExp = /^([a-zA-Z0-9_-]){8,32}$/;
-    if (userName == "" || !userNameRegExp.test(userName)) {
-        errorMessageElem.innerHTML += "<p>Invalid user name. User name must be between 8 and 32 characters and may contain a combination of letters and numbers</p>";
+    let names = userName.split(" ").length;
+    console.log(names);
+    if (names.length  < 2) {
+        errorMessageElem.innerHTML += "<p>Invalid name. Name must be First and last name</p>";
         isValid = false;
     }
     // Email regular expression pattern (RFC 5322 Official Standard)
@@ -20,9 +21,9 @@ function validateForm(event) {
         isValid = false;
     }
     // Password validation
-    const passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,32}$/;
-    if (password == "" || !passwordRegExp.test(password)) {
-        errorMessageElem.innerHTML += "<p>Password must be between 8 and 32 characters, at least one letter, one digit, and one special character.</p></p>";
+    const passwordRegExp = /^(?=.*[A-Za-z0-9])[A-Za-z\d@$!%*#?&]{1,150}$/;
+    if (comment == "" || !passwordRegExp.test(comment)) {
+        errorMessageElem.innerHTML += "<p>Comment must be less then 150 characters, at least one letter or one digit.</p>";
         isValid = false;
     }
 

@@ -26,17 +26,17 @@
 </head>
 
 <body>
-    <h1>Sign up</h1>
-    <form id="myForm" action="formValidationServer.php" onsubmit="validateForm(event)" method="post">
-        <label for="userNameInput">User name:</label>
+    <h1>Contact Us</h1>
+    <form id="myForm" action="formValidationServer.php" onsubmit="validateForm(event)" method="POST">
+        <label for="userNameInput">Name:</label>
         <input type="text" id="userNameInput" name="uname">
         <label for="emailInput">E-mail:</label>
         <input type="email" id="emailInput" name="email">
-        <label for="passwordInput">Password:</label>
-        <input type="password" id="passwordInput" name="pw">
+        <label for="passwordInput">Comment:</label>
+        <input type="text" id="commentInput" name="comment">
         <input type="submit" value="signup">
     </form>
-    <div id="error-message"></p>
+    <div id="error-message"></div>
 <script src="./formValidationClient.js"></script>
 </body>
 

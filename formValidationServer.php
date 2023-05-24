@@ -7,17 +7,17 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST' ){
 // Clean the input (remove extra whitespaces)
 $userName = trim($_POST["uname"]);
 $email = trim($_POST["email"]);
-$password = $_POST["pw"];
+$comment = $_POST["comment"];
 
-if (empty($userName) || empty($email) || empty($password)) {
-    echo "<p>Error: User name, email, and password data are required.</p>";
+if (empty($userName) || empty($email) || empty($comment)) {
+    echo "<p>Error: User name, email, and comment data are required.</p>";
     return;
 }
 
 // User name validation
 $unameLength = strlen($userName);
-$unameRegExp = "/^([a-zA-Z0-9_-]){8,32}$/";
-if (preg_match($unameRegExp, $userName)) {
+$unameRegExp = "/^([a-zA-Z0-9])$/";
+if (count(explode(' ', $userName)) > 1) {
     echo "<p>User name is valid</p>";
 } else {
     echo "<p>Error: Invalid user name. User name must be between 8 and 32 characters and may contain a combination of letters and numbers</p>";
@@ -30,11 +30,11 @@ if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     echo "<p>Error: Invalid email address.</p>";
 }
 
-// Password validation:
-$passwordRegExp = "/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,32}$/";
+// comment validation:
+$commentRegExp = "/^(?=.*[A-Za-z0-9])[A-Za-z\d@$!%*#?&]{0,150}$/";
 
-if (preg_match($passwordRegExp, $password)) {
-    echo "<p>Password is valid</p>";
+if (preg_match($commentRegExp, $comment)) {
+    echo "<p>Comment is valid</p>";
 } else {
-    echo "<p>Error: Password must be between 8 and 32 characters, at least one letter, one digit, and one special character.</p>";
+    echo "<p>Error: Comment must be less than 150 characters, at least one letter or one digit.</p>";
 }
