@@ -18,9 +18,9 @@ if (empty($userName) || empty($email) || empty($comment)) {
 $unameLength = strlen($userName);
 $unameRegExp = "/^([a-zA-Z0-9])$/";
 if (count(explode(' ', $userName)) > 1) {
-    echo "<p>User name is valid</p>";
+    echo "<p>Name is valid</p>";
 } else {
-    echo "<p>Error: Invalid user name. User name must be between 8 and 32 characters and may contain a combination of letters and numbers</p>";
+    echo "<p>Error: Invalid name. Name must be First and last name</p>";
 }
 
 // Email validation
